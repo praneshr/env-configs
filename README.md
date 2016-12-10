@@ -16,7 +16,7 @@ Run the following commands at the root of your project
 
 ##### Adding `default` config file.
 
-`node-env-configs` by default consumes this file and export the content as the default config when `NODE_ENV` is not set.
+`node-env-configs` by default consumes this file and exports the content as the default config when `NODE_ENV` is not set.
 ```bash
 $ mkdir configs
 $ vim configs/default.js  # or vim config/default.json
@@ -58,14 +58,14 @@ Now, create `main.js` and add the following code.
 
 ##### Making it work
 
-By default, when you run `main.js`, `node-env-configs` will check for `NODE_ENV` and look for the filename matching the `NODE_ENV`. If `NODE_ENV` is `undefined` it will pick `default.js | default.json` from the `root/configs/` and return it as the default config. So, here
+By default, when you run `main.js`, `node-env-configs` will check for `NODE_ENV` and look for the filename matching `NODE_ENV`. If `NODE_ENV` is `undefined`, it will pick `default.js | default.json` from the `root/configs/` and return it as the default config. So, here
 
 ```bash
 $ node main.js
 > 8090 #logs 'port' from the 'default.js'
 ```
 
-If your set the `NODE_ENV=production`,
+If you set the `NODE_ENV=production`,
 
 ```bash
 $ NODE_ENV=production node main.js
@@ -74,9 +74,9 @@ $ NODE_ENV=production node main.js
 
 ### Environment Variables
 
-##### `ENV_CONFIGS_DIR`
+#### `ENV_CONFIGS_DIR`
 
-**Description:** This specifies `node-env-configs` where the config files are saved in the project.
+**Description:** This intimates `node-env-configs` the location of config files saved in the project.
 
 **Default:** `<projectRoot>/configs/`
 
@@ -85,8 +85,8 @@ $ NODE_ENV=production node main.js
 $ ENV_CONFIGS_DIR=app/configs node main.js # now node-env-configs will look for configs from the specified path
 ```
 
-##### `SUPPRESS_ENV_CONFIGS_WARNINGS`
-**Description:** This specifies `node-env-configs` to do or do not show warnings and errors on the console.
+#### `SUPPRESS_ENV_CONFIGS_WARNINGS`
+**Description:** This inimates `node-env-configs` whether to show warnings and errors on the console.
 
 **Default:** `false`
 
