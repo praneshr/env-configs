@@ -1,0 +1,16 @@
+{
+  "name": "env-configs",
+  "version": "1.0.0",
+  "description": "Loads configs based on your environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "build": "babel src/index.js --out-dir build/",
+    "build:watch": "babel src/ --watch --out-file index.js"
+  },
+  "author": "Pranesh Ravi <praneshpranesh@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-latest": "^6.16.0"
+  }
+}
