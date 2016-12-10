@@ -20,8 +20,7 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "expect": "^1.20.2",
-    "mocha": "^3.2.0",
-    "shelljs": "^0.7.5"
+    "mocha": "^3.2.0"
   },
   "directories": {
     "src": "src",
@@ -30,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/praneshr/env-configs.git"
+    "url": "git+https://github.com/praneshr/node-env-configs.git"
   },
   "keywords": [
     "env",
@@ -42,7 +41,7 @@
     "pranesh"
   ],
   "bugs": {
-    "url": "https://github.com/praneshr/env-configs/issues"
+    "url": "https://github.com/praneshr/node-env-configs/issues"
   },
-  "homepage": "https://github.com/praneshr/env-configs#readme"
+  "homepage": "https://github.com/praneshr/node-env-configs#readme"
 }
