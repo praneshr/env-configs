@@ -1,15 +1,15 @@
 {
-  "name": "env-configs",
+  "name": "node-env-configs",
   "version": "1.0.0",
   "description": "Loads configs based on your environment",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers jsx?:babel-core/register test/index.js",
     "test:watch": "mocha --compilers jsx?:babel-core/register test/index.js --watch",
-    "build": "babel src/index.js --out-dir build/",
+    "build": "babel src/ --out-file index.js",
     "build:watch": "babel src/ --watch --out-file index.js",
     "prepublish": "npm run build",
-    "preversion": "npm build && npm test",
+    "preversion": "npm run build && npm test",
     "postversion": "git push && git push --tags"
   },
   "author": "Pranesh Ravi <praneshpranesh@gmail.com> (https://github.com/praneshr)",
