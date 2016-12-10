@@ -4,13 +4,45 @@
   "description": "Loads configs based on your environment",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
+    "test": "mocha --compilers jsx?:babel-core/register test/index.js",
+    "test:watch": "mocha --compilers jsx?:babel-core/register test/index.js --watch",
     "build": "babel src/index.js --out-dir build/",
-    "build:watch": "babel src/ --watch --out-file index.js"
+    "build:watch": "babel src/ --watch --out-file index.js",
+    "prepublish": "npm run build",
+    "preversion": "npm build && npm test",
+    "postversion": "git push && git push --tags"
   },
-  "author": "Pranesh Ravi <praneshpranesh@gmail.com>",
+  "author": "Pranesh Ravi <praneshpranesh@gmail.com> (https://github.com/praneshr)",
   "license": "MIT",
   "devDependencies": {
-    "babel-preset-latest": "^6.16.0"
-  }
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.20.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "expect": "^1.20.2",
+    "mocha": "^3.2.0",
+    "shelljs": "^0.7.5"
+  },
+  "directories": {
+    "src": "src",
+    "test": "test",
+    "doc": "README.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/praneshr/env-configs.git"
+  },
+  "keywords": [
+    "env",
+    "config",
+    "node-config",
+    "node",
+    "webpack",
+    "webpack-config",
+    "pranesh"
+  ],
+  "bugs": {
+    "url": "https://github.com/praneshr/env-configs/issues"
+  },
+  "homepage": "https://github.com/praneshr/env-configs#readme"
 }
