@@ -4,6 +4,14 @@
 
 Loads configuration files based on the `NODE_ENV`.
 
+> This is a simple version of [lorenwest/node-config](https://github.com/lorenwest/node-config) without the concept of [reserved words](https://github.com/lorenwest/node-config/wiki/Reserved-Words).
+
+> ### Reason behind this module
+
+> I **was** using [lorenwest/node-config](https://github.com/lorenwest/node-config) to configure my webpack.
+
+> When I tried to run webpack, it throwed me a wierd error saying `configuration.watch should be a boolean`. I was totally confused because I didn't had any key called `watch` in my webpack config. Later, after a serious of googling and debugging, I came to know that node-config was adding few [reserved words](https://github.com/lorenwest/node-config/wiki/Reserved-Words) into the `prototype` of the returned webpack config. This included `watch`, which is a reserved `function` in node-config(well). I felt polluting the source config was bad. So, I came up with my own module to replace node-config in all of my projects. Hope it helps everyone!
+
 ### Installation
 
 ```
