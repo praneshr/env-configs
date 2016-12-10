@@ -17,7 +17,7 @@ var _path2 = _interopRequireDefault(_path);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var logger = function logger(type, msg) {
-  var isSilent = process.env.SUPPRESS_WARNINGS == 'true' || false;
+  var isSilent = process.env.SUPPRESS_ENV_CONFIGS_WARNINGS == 'true' || false;
   var loggerConfig = {
     warning: {
       type: 'warn',
@@ -41,7 +41,12 @@ var readEnvConf = function readEnvConf(env, cwd, configsPath) {
     if (envJsExists) {
       return require(envJsPath);
     }
-    return require(envJsonPath);
+    try {
+      return require(envJsonPath);
+    } catch (e) {
+      logger('error', '[Error]: JSON parse failed');
+      throw new Error(e);
+    }
   } else {
     logger('warning', '[Warning]: No config file for environment \'' + env + '\' found at \'' + configsPath + '\'. Returning \'default\' config.');
     return {};
@@ -68,7 +73,12 @@ var envConfigs = function envConfigs() {
     if (defaultJsExists) {
       defaultconfig = require(defaultJsPath);
     } else {
-      defaultconfig = require(defaultJsonPath);
+      try {
+        defaultconfig = require(defaultJsonPath);
+      } catch (e) {
+        logger('error', '[Error]: JSON parse failed');
+        throw new Error(e);
+      }
     }
     var envConfig = readEnvConf(ENV.toLowerCase(), CWD, CONFIGS_PATH);
     return _extends({}, defaultconfig, envConfig);

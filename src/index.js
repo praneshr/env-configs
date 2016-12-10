@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 const logger = (type, msg) => {
-  const isSilent = process.env.SUPPRESS_WARNINGS == 'true' || false
+  const isSilent = process.env.SUPPRESS_ENV_CONFIGS_WARNINGS == 'true' || false
   const loggerConfig = {
     warning: {
       type: 'warn',
@@ -29,7 +29,12 @@ const readEnvConf = (env, cwd, configsPath) => {
     if (envJsExists) {
       return require(envJsPath)
     }
-    return require(envJsonPath)
+    try {
+      return require(envJsonPath)
+    } catch (e) {
+      logger('error', `[Error]: JSON parse failed`)
+      throw new Error(e)
+    }
   } else {
     logger('warning', `[Warning]: No config file for environment '${env}' found at '${configsPath}'. Returning 'default' config.`)
     return {}
@@ -56,7 +61,12 @@ const envConfigs = () => {
     if (defaultJsExists) {
       defaultconfig = require(defaultJsPath)
     } else {
-      defaultconfig = require(defaultJsonPath)
+      try {
+        defaultconfig = require(defaultJsonPath)
+      } catch (e) {
+        logger('error', `[Error]: JSON parse failed`)
+        throw new Error(e)
+      }
     }
     const envConfig = readEnvConf(ENV.toLowerCase(), CWD, CONFIGS_PATH)
     return {...defaultconfig, ...envConfig}
