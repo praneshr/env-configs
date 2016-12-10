@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- '6'
+- '6.1'
+- '5.11'
+- '0.6'
+before_script: npm run build
+deploy:
+  provider: npm
+  email: praneshpranesh@gmail.com
+  api_key:
+    secure: GsPQmsfzV9MXjjUjlBe0FtsRhUEGzNiqyDpScUIeULldSCrNIuGhhSoDPA1RetfRPjKszVNH0JSYe6eHoj50VmpuyrE/th54wOKwD8qpLWbQpSY9IlJMWcFlwpoJ9E4piE8IsCg7hbFjUezVyD1x8Zpbs0+0v+B1HEEQwvmzOvOIbZWf6Qv3bwYKJx0m1gyROIc4tifE8O6pz0ioFtWMWC9BV1bXxArj6O/dYEcKRu/W6rx8+P7BEwn0iIafx20+BFIY9DChOuND+Fs3glA96RrMrwhdMJNNnzzdP5qDRxLMRhYuE+rMb+8wZHiFzLy6NAsuPPxj5U3ybt51K4EGCPeAmNgO1V1J7YvHOcxKh6EkkdJZm172emmq/YXbQtnLq9f9t8nY1YrBu0RiksEqvoSIpdEr/xzwZsH01njwLPtiOjk+sd+N9Rr9oPHycKdYDCfydaUsxJ0FZd9ZVStS8XngE8XU2VkVbsAFYFVSefipzmZcqtPrvKG0pJiWdHBADtilBPoXBLRLlG3dR//bc1V7ITt3tWXqlLpu9ZMM9iUxhVEuF+OiPI0KVPTTgeLMzMqCgYQB9HMbFhas+GsRALUrDZdmTuhEANQQiBfmIZ0aePyjzmG6iU2klLQxmf0Wh8YvbMCBaqJBolk/Fy3s04O59GiDNrE5hCeHGoCS690=
+  on:
+    tags: true
+    repo: praneshr/env-configs
