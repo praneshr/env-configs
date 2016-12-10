@@ -1,4 +1,4 @@
-# env-configs &nbsp; &nbsp;![build](https://travis-ci.org/praneshr/env-configs.svg?branch=master)
+# env-configs &nbsp; &nbsp;[![Build Status](https://travis-ci.org/praneshr/env-configs.svg?branch=master)](https://travis-ci.org/praneshr/env-configs)
 
 [![NPM](https://nodei.co/npm/node-env-configs.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/node-env-configs/)
 
